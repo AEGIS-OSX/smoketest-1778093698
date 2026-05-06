@@ -34,9 +34,9 @@ export default function Page() {
   useEffect(() => {
     const params = parseUtmParams();
     setUtmParams({
-      source: params.source || "",
-      medium: params.medium || "",
-      campaign: params.campaign || "",
+      source: params.source ?? "",
+      medium: params.medium ?? "",
+      campaign: params.campaign ?? "",
     });
     storeUtmParams(params);
   }, []);
@@ -46,13 +46,12 @@ export default function Page() {
     setFormState((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
-      error: null, // Clear error on input change
+      error: null,
     }));
   };
 
   const handleCtaClick = () => {
     trackCtaClick("hero");
-    // Scroll to form or focus email input
     const emailInput = document.getElementById("email");
     if (emailInput) {
       emailInput.focus();
@@ -63,7 +62,6 @@ export default function Page() {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate
     if (!formState.email) {
       setFormState((prev) => ({
         ...prev,
@@ -110,7 +108,6 @@ export default function Page() {
         throw new Error(data.error || "Failed to subscribe");
       }
 
-      // Success
       trackEmailSignup(
         formState.email,
         formState.firstName,
@@ -128,7 +125,6 @@ export default function Page() {
         consent: false,
       }));
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setFormState((prev) => ({
           ...prev,
