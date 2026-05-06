@@ -1,3 +1,5 @@
+import Footer from "./components/Footer";
+
 export default function Page() {
   return (
     <>
@@ -44,12 +46,16 @@ export default function Page() {
           <h2 className="text-primary mb-8 text-center">What Our Users Say</h2>
           <div className="grid grid-2">
             <div className="bg-surface rounded-small p-6">
-              <p className="text-secondary mb-4">"PawWalk has been a lifesaver. My dog gets the exercise she needs, and I have peace of mind knowing she's in great hands."</p>
+              <p className="text-secondary mb-4">
+                "PawWalk has been a lifesaver. My dog gets the exercise she needs, and I have peace of mind knowing she{"'"s in great hands."
+              </p>
               <p className="text-primary font-semibold">Sarah M.</p>
               <p className="text-support-slate text-sm">Upper West Side, NYC</p>
             </div>
             <div className="bg-surface rounded-small p-6">
-              <p className="text-secondary mb-4">"The walkers are professional and genuinely care about the dogs. I recommend PawWalk to everyone."</p>
+              <p className="text-secondary mb-4">
+                "The walkers are professional and genuinely care about the dogs. I recommend PawWalk to everyone."
+              </p>
               <p className="text-primary font-semibold">James T.</p>
               <p className="text-support-slate text-sm">Brooklyn, NYC</p>
             </div>
@@ -104,20 +110,19 @@ export default function Page() {
                 Get Early Access
               </button>
             </form>
-            <p className="text-support-slate text-xs text-center mt-4">
-              We respect your privacy. See our <a href="/privacy">privacy policy</a>.
-            </p>
+            <div className="mt-6 pt-6 border-t border-dark-border">
+              <p className="text-support-slate text-xs text-center mb-3">
+                We respect your privacy. Your email is stored securely in Mailchimp and backed up to Google Sheets for redundancy. We{"'"ll never share your information without your consent.
+              </p>
+              <p className="text-support-slate text-xs text-center">
+                See our <a href="/privacy" className="text-accent-primary hover:text-accent-secondary transition-colors">privacy policy</a> for details.
+              </p>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-surface text-primary py-8 mt-12">
-        <div className="container text-center">
-          <p className="text-secondary text-sm">
-            © 2026 PawWalk. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
