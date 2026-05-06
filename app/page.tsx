@@ -1,3 +1,5 @@
+import Hero from "./components/Hero";
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-canvas text-text-primary">
@@ -16,27 +18,7 @@ export default function Page() {
         </div>
       </nav>
 
-      <section className="py-16 md:py-24 lg:py-32">
-        <div className="container-page">
-          <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center">
-            <div className="flex flex-col gap-6">
-              <h1 className="text-h1">Meet PawWalk</h1>
-              <p className="text-body text-text-secondary max-w-lg">
-                Flexible, on-demand dog walking for urban pet owners who value reliability, safety, and easy scheduling.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="btn-primary">Join the PawWalk Waitlist</button>
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-[var(--radius-small)] border border-dark text-text-primary font-medium text-[var(--type-scale-3)] leading-[var(--line-height-3)] transition-colors duration-150 ease-out hover:bg-[#0f1113] focus-ring">
-                  Learn More
-                </button>
-              </div>
-            </div>
-            <div className="bg-[#0f1113] rounded-[var(--radius-small)] aspect-square flex items-center justify-center border border-dark">
-              <span className="text-text-secondary">Hero Image</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <section id="features" className="py-16 md:py-24 bg-[#0f1113] border-y border-dark">
         <div className="container-page">
@@ -107,7 +89,9 @@ export default function Page() {
                 key={idx}
                 className="p-6 rounded-[var(--radius-small)] bg-[#0f1113] border border-dark flex flex-col gap-4"
               >
-                <p className="text-body text-text-secondary italic">\"{testimonial.quote}\"</p>
+                <p className="text-body text-text-secondary italic">
+                  "{testimonial.quote}"
+                </p>
                 <div className="flex flex-col gap-1">
                   <p className="text-body font-medium">{testimonial.author}</p>
                   <p className="text-small text-text-secondary">{testimonial.neighborhood}</p>
