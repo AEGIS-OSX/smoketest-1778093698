@@ -1,57 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Design Tokens — PawWalk */
 
 :root {
-  /* Palette */
-  --color-canvas: #0b0c10;
-  --color-surface: #f6f4f2;
-  --color-accent-primary: #2aa6b2;
-  --color-accent-secondary: #b88b3a;
-  --color-support-slate: #6b7150;
-  --color-neutral-900: #0b0c10;
-  --color-neutral-100: #f6f4f2;
+  /* Color Palette */
+  --color-canvas: #0B0C10;
+  --color-surface: #F6F4F2;
+  --color-accent-primary: #2AA6B2;
+  --color-accent-secondary: #B88B3A;
+  --color-support-slate: #6B7150;
+  --color-neutral-900: #0B0C10;
+  --color-neutral-100: #F6F4F2;
   --color-overlay: rgba(11, 12, 16, 0.6);
 
-  /* Dark mode variants */
-  --dark-background: #0b0c10;
-  --dark-surface: #0f1113;
-  --dark-text-primary: #f6f4f2;
-  --dark-text-secondary: #d6d4cf;
+  /* Dark Mode Variants */
+  --dark-background: #0B0C10;
+  --dark-surface: #0F1113;
+  --dark-text-primary: #F6F4F2;
+  --dark-text-secondary: #D6D4CF;
   --dark-border: rgba(255, 255, 255, 0.06);
   --dark-card-shadow: 0 6px 18px rgba(2, 4, 6, 0.6);
 
-  /* Light mode variants */
-  --light-background: #f6f4f2;
-  --light-surface: #ffffff;
-  --light-text-primary: #0b0c10;
-  --light-text-secondary: #6b7150;
+  /* Light Mode Variants */
+  --light-background: #F6F4F2;
+  --light-surface: #FFFFFF;
+  --light-text-primary: #0B0C10;
+  --light-text-secondary: #6B7150;
   --light-border: rgba(11, 12, 16, 0.06);
   --light-card-shadow: 0 6px 18px rgba(11, 12, 16, 0.08);
 
-  /* Typography scale */
-  --type-scale-0: 12px;
-  --type-scale-1: 13px;
-  --type-scale-2: 14px;
-  --type-scale-3: 16px;
-  --type-scale-4: 18px;
-  --type-scale-5: 24px;
-  --type-scale-6: 34px;
-  --type-scale-7: 48px;
-  --type-scale-8: 64px;
-
-  /* Line heights */
-  --line-height-0: 16px;
-  --line-height-1: 16px;
-  --line-height-2: 20px;
-  --line-height-3: 24px;
-  --line-height-4: 26px;
-  --line-height-5: 32px;
-  --line-height-6: 40px;
-  --line-height-7: 52px;
-  --line-height-8: 68px;
-
-  /* Spacing */
+  /* Spacing System (8px base unit) */
   --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 12px;
@@ -62,173 +38,296 @@
   --spacing-7: 48px;
   --spacing-8: 64px;
 
+  /* Typography Scale */
+  --type-scale-0: 12px;
+  --type-scale-1: 13px;
+  --type-scale-2: 14px;
+  --type-scale-3: 16px;
+  --type-scale-4: 18px;
+  --type-scale-5: 24px;
+  --type-scale-6: 34px;
+  --type-scale-7: 48px;
+  --type-scale-8: 64px;
+
+  /* Line Heights */
+  --line-height-0: 16px;
+  --line-height-1: 16px;
+  --line-height-2: 20px;
+  --line-height-3: 24px;
+  --line-height-4: 26px;
+  --line-height-5: 32px;
+  --line-height-6: 40px;
+  --line-height-7: 52px;
+  --line-height-8: 68px;
+
   /* Radii */
   --radius-small: 6px;
   --radius-round: 9999px;
 
-  /* Base font size */
+  /* Shadows */
+  --shadow-card-dark: 0 6px 18px rgba(2, 4, 6, 0.6);
+  --shadow-card-light: 0 6px 18px rgba(11, 12, 16, 0.08);
+
+  /* Base Font Size */
   --base-font-size: 16px;
 }
 
-@layer base {
-  html {
-    font-size: var(--base-font-size);
-    scroll-behavior: smooth;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--base-font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--color-canvas);
+  color: var(--dark-text-primary);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Typography */
+h1 {
+  font-size: var(--type-scale-7);
+  line-height: var(--line-height-7);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--type-scale-6);
+  line-height: var(--line-height-6);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--type-scale-5);
+  line-height: var(--line-height-5);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--type-scale-4);
+  line-height: var(--line-height-4);
+  font-weight: 600;
+}
+
+p {
+  font-size: var(--type-scale-3);
+  line-height: var(--line-height-3);
+  font-weight: 400;
+}
+
+small {
+  font-size: var(--type-scale-1);
+  line-height: var(--line-height-1);
+}
+
+/* Links */
+a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: var(--type-scale-3);
+  font-weight: 600;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: none;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: var(--type-scale-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-small);
+  background-color: var(--dark-surface);
+  color: var(--dark-text-primary);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  min-height: 44px;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--color-accent-primary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  background-color: var(--dark-surface);
+}
+
+/* Semantic Landmarks */
+header {
+  padding: var(--spacing-4) var(--spacing-3);
+}
+
+nav {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+main {
+  min-height: 100vh;
+}
+
+section {
+  padding: var(--spacing-7) var(--spacing-3);
+}
+
+/* Responsive Spacing */
+@media (min-width: 600px) {
+  header {
+    padding: var(--spacing-5) var(--spacing-4);
   }
 
+  section {
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+}
+
+@media (min-width: 960px) {
+  header {
+    padding: var(--spacing-5) var(--spacing-6);
+  }
+
+  section {
+    padding: var(--spacing-8) var(--spacing-6);
+  }
+}
+
+/* Utility Classes */
+.bg-canvas {
+  background-color: var(--color-canvas);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.text-primary {
+  color: var(--dark-text-primary);
+}
+
+.text-secondary {
+  color: var(--dark-text-secondary);
+}
+
+.text-accent-primary {
+  color: var(--color-accent-primary);
+}
+
+.text-accent-secondary {
+  color: var(--color-accent-secondary);
+}
+
+.text-support-slate {
+  color: var(--color-support-slate);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-3);
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: 0 var(--spacing-4);
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    padding: 0 var(--spacing-6);
+  }
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 960px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
   body {
-    font-family: "Söhne", "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--dark-text-primary);
-    background-color: var(--dark-background);
-  }
-
-  h1 {
-    font-family: "Domaine Display", "Söhne", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-size: var(--type-scale-7);
-    line-height: var(--line-height-7);
-    font-weight: 700;
-  }
-
-  h2 {
-    font-family: "Domaine Display", "Söhne", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-size: var(--type-scale-6);
-    line-height: var(--line-height-6);
-    font-weight: 600;
-  }
-
-  h3 {
-    font-family: "Söhne", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-size: var(--type-scale-5);
-    line-height: var(--line-height-5);
-    font-weight: 600;
-  }
-
-  p {
-    font-size: var(--type-scale-3);
-    line-height: var(--line-height-3);
-    font-weight: 400;
-  }
-
-  small {
-    font-size: var(--type-scale-1);
-    line-height: var(--line-height-1);
-  }
-
-  a {
-    color: var(--color-accent-primary);
-    text-decoration: none;
-    transition: color 150ms ease-out;
-  }
-
-  a:hover {
-    color: var(--color-accent-secondary);
-  }
-
-  a:focus-visible {
-    outline: 2px solid var(--color-accent-secondary);
-    outline-offset: 2px;
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font-family: inherit;
-    font-size: inherit;
-  }
-
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    outline: 2px solid var(--color-accent-secondary);
-    outline-offset: 2px;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--dark-text-secondary);
-  }
-}
-
-@layer components {
-  .bg-canvas {
-    @apply bg-[#0b0c10];
-  }
-
-  .bg-surface {
-    @apply bg-[#f6f4f2];
-  }
-
-  .text-text-primary {
-    @apply text-[#f6f4f2];
-  }
-
-  .text-text-secondary {
-    @apply text-[#d6d4cf];
-  }
-
-  .border-dark {
-    @apply border-[rgba(255,255,255,0.06)];
-  }
-
-  .shadow-card {
-    @apply shadow-[0_6px_18px_rgba(2,4,6,0.6)];
-  }
-
-  .focus-ring {
-    @apply focus-visible:outline-2 focus-visible:outline-[#b88b3a] focus-visible:outline-offset-2;
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-[var(--radius-small)] bg-[#2aa6b2] text-[#f6f4f2] font-medium text-[var(--type-scale-3)] leading-[var(--line-height-3)] transition-colors duration-150 ease-out hover:bg-[#b88b3a] focus-ring disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-
-  .container-page {
-    @apply w-full max-w-7xl mx-auto px-6 md:px-12;
-  }
-}
-
-@layer utilities {
-  .text-h1 {
-    @apply text-[var(--type-scale-7)] leading-[var(--line-height-7)] font-bold;
-  }
-
-  .text-h2 {
-    @apply text-[var(--type-scale-6)] leading-[var(--line-height-6)] font-semibold;
-  }
-
-  .text-h3 {
-    @apply text-[var(--type-scale-5)] leading-[var(--line-height-5)] font-semibold;
-  }
-
-  .text-body {
-    @apply text-[var(--type-scale-3)] leading-[var(--line-height-3)] font-normal;
-  }
-
-  .text-small {
-    @apply text-[var(--type-scale-2)] leading-[var(--line-height-2)] font-normal;
-  }
-
-  .text-micro {
-    @apply text-[var(--type-scale-1)] leading-[var(--line-height-1)] font-normal;
-  }
-
-  .spacing-rhythm-1 {
-    @apply gap-2;
-  }
-
-  .spacing-rhythm-2 {
-    @apply gap-4;
-  }
-
-  .spacing-rhythm-3 {
-    @apply gap-6;
-  }
-
-  .spacing-rhythm-4 {
-    @apply gap-8;
+    background-color: white;
+    color: black;
   }
 }
